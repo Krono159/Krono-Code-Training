@@ -22,28 +22,28 @@ while loop:
 num = r(min,max)
 loop = True
 while loop:
-    try:
+    if attempts <= maxattempts:
         usrguess = int(input("adivina el numero...\t"))
-
-        if usrguess < min or usrguess > max:
-            print(f"numero invalido, debe estar entre {min} y {max}")
-            loop = True
-        elif usrguess > min or usrguess < max: 
-            loop = False
-            attempts += 1
-        else:
-            loop = True
-            print("error")
-    except:
+    else:
+        pass
+    if usrguess < min or usrguess > max:
+        print(f"numero invalido, debe estar entre {min} y {max}")
+        loop = True
+    elif usrguess > min or usrguess < max: 
+        loop = False
+        attempts += 1
+    else:
+        loop = True
         print("error")
     if attempts <= maxattempts:
         loop = True
 
         if usrguess > num:
             print("muy alto")
+            print("intentos restantes... ",(maxattempts-attempts))
         elif usrguess < num:
             print("muy bajo")
-            print("intentos restantes... ")
+            print("intentos restantes... ",(maxattempts-attempts))
         elif usrguess == num:
             print("numero correcto!")
             attempts = maxattempts+99
@@ -53,13 +53,12 @@ while loop:
         ans = input("S)i // N)o\t\t")
         if ans.islower():
             ans = ans.upper()
-        if ans == "Y":
+        if ans == "S":
             num = r(min,max)
             attempts = 0
             loop = True
         else:
             print("Hasta luego! ")
-            attempts = 99
             loop = False
         
 
