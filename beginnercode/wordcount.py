@@ -4,7 +4,14 @@ import string
 translator = str.maketrans('', '', string.punctuation)
 
 word_count = {}
-text = open('declaration.txt').read()
+
+try:
+    file = open('./begginercode/test.txt').read()
+    text = 1
+except:
+    print("no se pudo abrir el archivo... error code: 1")
+    text = input("ingrese una frase:  \t\t\n")
+    type = 2
 
 words = text.split()
 for word in words:

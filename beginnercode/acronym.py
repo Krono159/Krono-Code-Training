@@ -5,7 +5,6 @@ splitted = e.split()
 for word in splitted:
     s = [*word]
     for x in s:
-        print(x)
         if o == 0:
             if x.isupper():
                 arr.append(x)
